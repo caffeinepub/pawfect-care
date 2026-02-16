@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Expand the Pawfect Care Chewy/VetCare-style grooming landing page to include a professional customer-friendly overview with feel-good imagery, an appointment-booking flow (pet details + service + date), expanded grooming services, membership plan mention, trust/vendor partnership messaging, Chewy-accurate brand colors, and end-of-page FAQ/Need Help sections, while fixing broken images and placing the provided images appropriately (including a set at the end).",
+  "architectural_notes": [
+    "Use VetCare reference image as the primary style/layout guide; keep color palette and typography consistent while adapting content to pet grooming.",
+    "Update brand color usage to match Chewy/VetCare more precisely; use provided design tokens (e.g., color.get('link','active','primary'), color.get('text','brand','loyalty','accent-alt')) and/or closest hex values; primary text may align with var(--chirp-text-primary, #121212)."
+  ],
+  "known_issues": [
+    "Reported issue: some images appear broken on the current live page and need to be fixed (paths/loading/cropping).",
+    "Build/deploy is intermittently failing due to an internal configuration problem (requires retry and/or platform support)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-marketing-landing-page-for-a-chewy-style-pet-grooming-brand-named-pawfect-care-using-the-vetcare-reference-website-image-as-the-layout-style-reference-same-overall-structure-color-palette-and-typography-but-with-content-updated-for-grooming-instead-of-veterinary-care",
+      "title": "Create a single-page marketing/landing page for a Chewy-style pet grooming brand named “Pawfect Care”, using the VetCare reference website image as the layout/style reference (same overall structure, color palette, and typography), but with content updated for grooming instead of veterinary care.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-incorporate-the-provided-grooming-images-the-other-images-for-grooming-throughout-the-page-in-the-appropriate-sections-e-g-hero-featured-services-gallery-and-ensure-they-are-presented-with-consistent-sizing-cropping-and-spacing",
+      "title": "Incorporate the provided grooming images (the “other images for grooming”) throughout the page in the appropriate sections (e.g., hero/featured services/gallery), and ensure they are presented with consistent sizing, cropping, and spacing.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-the-overall-feel-to-be-more-happy-while-still-keeping-the-vetcare-color-palette-and-typography-use-friendlier-styling-such-as-more-whitespace-rounded-cards-buttons-upbeat-section-headings-and-cheerful-supporting-ui-elements-e-g-subtle-patterns-icons-or-highlights-without-changing-the-core-brand-colors-fonts",
+      "title": "Adjust the overall feel to be “more happy” while still keeping the VetCare color palette and typography—use friendlier styling such as more whitespace, rounded cards/buttons, upbeat section headings, and cheerful supporting UI elements (e.g., subtle patterns, icons, or highlights) without changing the core brand colors/fonts.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-core-grooming-landing-page-sections-with-clear-calls-to-action-suitable-for-a-chewy-style-grooming-service-site-hero-headline-subheadline-primary-cta-services-grooming-offerings-how-it-works-simple-steps-social-proof-testimonials-ratings-and-footer-basic-links-contact-placeholders",
+      "title": "Add core grooming-landing-page sections with clear calls-to-action suitable for a Chewy-style grooming service site: Hero (headline + subheadline + primary CTA), Services (grooming offerings), How it works (simple steps), Social proof (testimonials/ratings), and Footer (basic links/contact placeholders).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-one-coherent-visual-theme-direction-within-the-constraint-of-keeping-vetcare-colors-and-fonts-and-enforce-it-consistently-across-the-page-spacing-system-button-styles-card-styles-icon-style-section-rhythm",
+      "title": "Apply one coherent visual theme direction (within the constraint of keeping VetCare colors and fonts) and enforce it consistently across the page (spacing system, button styles, card styles, icon style, section rhythm).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-what-is-pawfect-care-overview-section-before-the-services-section-customized-from-the-chewy-vetcare-reference-layout-and-written-in-english-the-section-must-1-give-an-overview-of-what-customers-can-expect-from-pawfect-care-grooming-2-explain-why-pet-care-is-important-and-3-include-trust-building-copy-that-pawfect-care-works-with-almost-100s-of-vendor-partners-and-that-they-are-chewy-verified",
+      "title": "Add a new “What is Pawfect Care” overview section BEFORE the Services section, customized from the Chewy VetCare reference layout and written in English. The section must: (1) give an overview of what customers can expect from Pawfect Care grooming, (2) explain why pet care is important, and (3) include trust-building copy that Pawfect Care works with almost 100s of vendor partners and that they are Chewy-verified.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-membership-plans-section-styled-similarly-to-the-chewy-vetcare-reference-layout-feel-but-customized-for-grooming-and-pawfect-care-do-not-show-any-membership-prices-only-communicate-that-membership-plans-are-available-and-briefly-describe-benefits-in-simple-bullets",
+      "title": "Add a “Membership plans” section styled similarly to the Chewy VetCare reference (layout/feel), but customized for grooming and Pawfect Care. Do NOT show any membership prices; only communicate that membership plans are available and briefly describe benefits in simple bullets.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-visual-theme-colors-to-better-match-chewy-vetcare-brand-blue-the-current-blue-is-too-light-use-the-closest-matching-hex-oklch-values-to-the-user-provided-chewy-design-tokens-and-ensure-primary-link-cta-and-key-accents-reflect-chewy-blue-preserve-the-existing-typography-direction-chewy-vetcare-style-fonts-and-hierarchy",
+      "title": "Update the visual theme colors to better match Chewy/VetCare brand blue (the current blue is too light). Use the closest matching hex/OKLCH values to the user-provided Chewy design tokens and ensure primary link/CTA and key accents reflect “Chewy blue”. Preserve the existing typography direction (Chewy/VetCare-style fonts and hierarchy).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-convenient-access-to-care-detail-row-section-styled-like-the-chewy-vetcare-reference-small-icon-to-the-left-of-the-heading-and-body-text-but-customized-for-grooming-e-g-booking-updates-care-notes-use-a-mobile-in-hand-icon-vector-icon-component-acceptable-preceding-the-heading",
+      "title": "Add a “Convenient access to care” detail row/section styled like the Chewy VetCare reference (small icon to the left of the heading and body text), but customized for grooming (e.g., booking, updates, care notes). Use a mobile-in-hand icon (vector/icon component acceptable) preceding the heading.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-services-content-to-include-explicit-services-for-nail-trimming-and-teeth-cleaning-teeth-cleaning-in-addition-to-existing-services-with-matching-chewy-style-cards-and-appropriate-icons-use-the-uploaded-images-where-they-best-fit-for-these-services",
+      "title": "Expand the Services content to include explicit services for Nail Trimming and Teeth Cleaning/Teeth Cleaning (in addition to existing services), with matching Chewy-style cards and appropriate icons. Use the uploaded images where they best fit for these services.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-incorporate-all-user-uploaded-images-image-png-image-1-png-image-2-png-image-3-png-image-4-png-image-5-png-image-6-png-image-7-png-image-8-png-image-9-png-image-10-png-image-11-png-image-12-png-image-13-png-image-14-png-into-the-landing-page-in-a-cohesive-way-1-use-a-mix-of-the-spa-cat-and-bath-images-inside-the-new-overview-section-2-place-other-images-where-they-best-suit-the-page-sections-and-3-append-a-dedicated-end-of-page-image-gallery-strip-that-includes-the-specified-images-at-the-end-of-the-page-before-the-footer-ensure-consistent-sizing-cropping-and-spacing-and-fix-any-broken-image-paths-so-all-images-render",
+      "title": "Incorporate ALL user-uploaded images (image.png, image-1.png, image-2.png, image-3.png, image-4.png, image-5.png, image-6.png, image-7.png, image-8.png, image-9.png, image-10.png, image-11.png, image-12.png, image-13.png, image-14.png) into the landing page in a cohesive way: (1) use a mix of the spa-cat and bath images inside the new overview section, (2) place other images where they best suit the page sections, and (3) append a dedicated “end-of-page” image gallery/strip that includes the specified images at the end of the page (before the footer). Ensure consistent sizing, cropping, and spacing, and fix any broken image paths so all images render.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-end-of-page-faqs-and-need-help-sections-modeled-after-the-chewy-vetcare-reference-layout-but-customized-for-pawfect-care-grooming-faqs-must-be-grooming-related-and-written-in-english-need-help-must-include-clear-contact-placeholders-and-match-the-chewy-style-blue-panel-feel",
+      "title": "Add end-of-page “FAQs” and “Need help?” sections modeled after the Chewy VetCare reference layout but customized for Pawfect Care grooming. FAQs must be grooming-related and written in English; “Need help?” must include clear contact placeholders and match the Chewy-style blue panel feel.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Design and build a Chewy-style pet grooming webpage/landing page called \"Pawfect Care\" based on the VetCare reference image layout, reusing the same colors and fonts, and incorporating provided grooming images to make the page feel happier.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add a professional, customer-friendly 'What is Pawfect Care' overview section (before services) with feel-good imagery (mix of provided images) and messaging on why pet care matters, what customers can expect, and trust-building copy (100s of Chewy-verified vendor partners).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Add an appointment-booking section/form that collects pet details (age, breed), selected service type, preferred date of service, and a 'Book appointment' action/CTA.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add/expand grooming services content to include additional services (explicitly nail trimming and teeth cleaning) and incorporate the newly provided service images where they best fit; also append specified images at the end of the page.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add a membership plans mention/section styled like Chewy VetCare (no prices shown for now) and aligned to the Chewy/VetCare visual style.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add end-of-page FAQ and 'Need help' sections based on the VetCare reference layout but customized for Pawfect Care grooming-related questions and support content.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Adjust styling to match Chewy/VetCare brand colors more accurately (use Chewy blue; align to provided design tokens and closest hex values) and add small UI detail rows like 'Convenient access to care' with a mobile-in-hand icon customized for grooming.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Pawfect Care",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

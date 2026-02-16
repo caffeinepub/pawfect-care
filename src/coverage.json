@@ -1,0 +1,123 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T21:13:06.262Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 7,
+    "implemented": 7,
+    "items": [
+      {
+        "id": "REQ-10",
+        "summary": "Expand the Services content to include explicit services for Nail Trimming and Teeth Cleaning/Teeth Cleaning (in addition to existing services), with matching Chewy-style cards and appropriate icons. Use the uploaded images where they best fit for these services.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Incorporate ALL user-uploaded images (image.png, image-1.png, image-2.png, image-3.png, image-4.png, image-5.png, image-6.png, image-7.png, image-8.png, image-9.png, image-10.png, image-11.png, image-12.png, image-13.png, image-14.png) into the landing page in a cohesive way: (1) use a mix of the spa-cat and bath images inside the new overview section, (2) place other images where they best suit the page sections, and (3) append a dedicated “end-of-page” image gallery/strip that includes the specified images at the end of the page (before the footer). Ensure consistent sizing, cropping, and spacing, and fix any broken image paths so all images render.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/uploaded/image.png",
+          "frontend/public/assets/uploaded/image-1.png",
+          "frontend/public/assets/uploaded/image-2.png",
+          "frontend/public/assets/uploaded/image-3.png",
+          "frontend/public/assets/uploaded/image-4.png",
+          "frontend/public/assets/uploaded/image-5.png",
+          "frontend/public/assets/uploaded/image-6.png",
+          "frontend/public/assets/uploaded/image-7.png",
+          "frontend/public/assets/uploaded/image-8.png",
+          "frontend/public/assets/uploaded/image-9.png",
+          "frontend/public/assets/uploaded/image-10.png",
+          "frontend/public/assets/uploaded/image-11.png",
+          "frontend/public/assets/uploaded/image-12.png",
+          "frontend/public/assets/uploaded/image-13.png",
+          "frontend/public/assets/uploaded/image-14.png",
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Add end-of-page “FAQs” and “Need help?” sections modeled after the Chewy VetCare reference layout but customized for Pawfect Care grooming. FAQs must be grooming-related and written in English; “Need help?” must include clear contact placeholders and match the Chewy-style blue panel feel.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Add a new “What is Pawfect Care” overview section BEFORE the Services section, customized from the Chewy VetCare reference layout and written in English. The section must: (1) give an overview of what customers can expect from Pawfect Care grooming, (2) explain why pet care is important, and (3) include trust-building copy that Pawfect Care works with almost 100s of vendor partners and that they are Chewy-verified.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Add a “Membership plans” section styled similarly to the Chewy VetCare reference (layout/feel), but customized for grooming and Pawfect Care. Do NOT show any membership prices; only communicate that membership plans are available and briefly describe benefits in simple bullets.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Update the visual theme colors to better match Chewy/VetCare brand blue (the current blue is too light). Use the closest matching hex/OKLCH values to the user-provided Chewy design tokens and ensure primary link/CTA and key accents reflect “Chewy blue”. Preserve the existing typography direction (Chewy/VetCare-style fonts and hierarchy).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Add a “Convenient access to care” detail row/section styled like the Chewy VetCare reference (small icon to the left of the heading and body text), but customized for grooming (e.g., booking, updates, care notes). Use a mobile-in-hand icon (vector/icon component acceptable) preceding the heading.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/icons/MobileInHandIcon.tsx",
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/icons/MobileInHandIcon.tsx",
+          "frontend/src/components/PawfectCareLanding.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/PawfectCareLanding.tsx",
+    "frontend/src/components/icons/MobileInHandIcon.tsx",
+    "frontend/src/index.css",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

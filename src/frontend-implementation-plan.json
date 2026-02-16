@@ -1,0 +1,197 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Pawfect Care landing page expansion (Chewy/VetCare-style sections, theme blue, services + images, FAQs/support)",
+  "requirements": [
+    {
+      "id": "REQ-6",
+      "summary": "Add a Chewy/VetCare-style “What is Pawfect Care” overview section before Services with grooming expectations, importance of care, and Chewy-verified vendor trust copy.",
+      "acceptanceCriteria": [
+        "A distinct overview section appears between the Hero and Services sections in frontend/src/components/PawfectCareLanding.tsx.",
+        "The section text is in English, grooming-focused, and includes the vendor partnership + Chewy-verified trust message.",
+        "The section does not replace the existing Services section; it precedes it."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "operation": "modify",
+          "description": "Insert a new “What is Pawfect Care” section between the Hero and Services sections, using a Chewy/VetCare-like layout (clean, rounded, spacious). Include English grooming-focused copy covering: (1) what customers can expect, (2) why pet care is important, and (3) trust messaging that Pawfect Care works with almost 100s of vendor partners and they’re Chewy-verified. Incorporate a mixed image layout using uploaded spa-cat + bath imagery and ensure images use consistent aspect ratios and include width/height (or equivalent) to prevent layout shift."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add a Chewy/VetCare-style “Membership plans” section for grooming that communicates availability and benefits without any prices.",
+      "acceptanceCriteria": [
+        "A membership section exists on the page with a short intro and benefit bullets, and contains no prices.",
+        "The visual styling aligns with the existing Chewy/VetCare-inspired look (rounded, spacious, clean)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "operation": "modify",
+          "description": "Add a “Membership plans” section (single-page, no new routes) with Chewy/VetCare-inspired layout and simple benefit bullets (no pricing, no checkout). Use one relevant uploaded image as a supporting visual and keep styling consistent with existing rounded Card/Badge/Button patterns."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Adjust global theme tokens so primary CTAs/links use a darker Chewy/VetCare-like blue and primary text remains readable near #121212, using existing CSS variable + Tailwind token approach.",
+      "acceptanceCriteria": [
+        "Primary buttons/links use a darker, Chewy-like blue (not the current lighter blue).",
+        "Foreground text remains readable and consistent with var(--chirp-text-primary, #121212) for primary text (or closest theme equivalent).",
+        "Color changes are applied via the existing theme token approach (CSS variables in frontend/src/index.css and Tailwind token usage), not hard-coded ad-hoc per component."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update theme CSS variables to a darker Chewy/VetCare-like brand blue by adjusting --primary and related tokens (e.g., --ring, sidebar primary) while keeping the existing typography direction. Align primary text toward #121212 by adjusting the base foreground token if needed, ensuring contrast/readability. Do not hard-code ad-hoc colors in individual components; rely on existing Tailwind token usage (text-primary, bg-primary, ring-primary, etc.)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add a Chewy/VetCare-style “Convenient access to care” detail row with a mobile-in-hand icon and grooming-specific copy.",
+      "acceptanceCriteria": [
+        "A row/section exists with a small phone/mobile-in-hand icon preceding the heading, followed by supporting text and an optional link-style CTA.",
+        "Copy is grooming-focused and does not mention veterinary-only concepts."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/icons/MobileInHandIcon.tsx",
+          "operation": "create",
+          "description": "Create a small reusable React icon component that visually represents a mobile-in-hand (simple inline SVG or icon composition) sized for use to the left of a heading. Keep it styleable via className so it can match the Chewy-blue theme."
+        },
+        {
+          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "operation": "modify",
+          "description": "Add a “Convenient access to care” row/section in a Chewy/VetCare-like layout (small icon to the left of heading + body). Use the new MobileInHandIcon before the heading. Copy must be grooming-specific (booking, appointment updates, groomer notes, before/after guidance) and may include an optional link-style CTA."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Expand Services with dedicated Nail Trimming and Teeth Cleaning service cards using consistent Chewy-style cards, suitable icons, and uploaded images.",
+      "acceptanceCriteria": [
+        "Services section includes clear service entries for Nail Trimming and Teeth Cleaning (as their own items or clearly called out service cards).",
+        "Each added service has appropriate imagery from the uploaded set and consistent card sizing/cropping with existing service cards."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "operation": "modify",
+          "description": "Update the Services card grid to add two additional cards: “Nail Trimming” and “Teeth Cleaning”. Use lucide-react icons appropriate for each (e.g., a scissor/clipper-like icon for nails and a tooth/smile-like icon for teeth) and match existing Card layout, sizing, hover behavior, and rounded styling. Assign uploaded images that best match each service (e.g., image-3.png for nail trimming, image-2.png for teeth cleaning) and ensure consistent aspect ratio/cropping with the other service cards."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Place all uploaded images cohesively across the landing page, fix any broken image paths, and add an end-of-page responsive gallery/strip before the footer.",
+      "acceptanceCriteria": [
+        "All listed uploaded images are present somewhere on the page and load successfully (no broken images).",
+        "The overview section uses a mix of the spa-cat and bath imagery (not only one).",
+        "A dedicated end-of-page gallery/strip exists and displays the requested end images in a consistent grid/strip (responsive), before the footer.",
+        "Image presentation uses consistent aspect ratios/cropping and does not cause layout shifts on load."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/uploaded/image.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page. Ensure the filename matches exactly (image.png) to prevent broken paths."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-1.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-1.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-2.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-2.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-3.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-3.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-4.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-4.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-5.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-5.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-6.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-6.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-7.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-7.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-8.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-8.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-9.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-9.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-10.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-10.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-11.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-11.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-12.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-12.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-13.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-13.png)."
+        },
+        {
+          "path": "frontend/public/assets/uploaded/image-14.png",
+          "operation": "create",
+          "description": "Add the user-uploaded asset file so it can be referenced from the landing page (image-14.png)."
+        },
+        {
+          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "operation": "modify",
+          "description": "Replace any broken/placeholder image src values with valid paths to the uploaded assets under frontend/public/assets/uploaded/ and distribute ALL images across the page cohesively: (1) use a mix of spa-cat + bath images inside the new overview section, (2) place remaining images where they best fit (hero/supporting visuals/services/testimonials), and (3) append a dedicated end-of-page responsive gallery/strip before the footer that includes the remaining images. Standardize presentation with consistent aspect ratios, object-fit cropping, spacing, and fixed dimensions (width/height or aspect containers) to avoid layout shift; use lazy loading for non-hero images."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add end-of-page grooming FAQs (accordion) and a Chewy-blue “Need help?” support panel before the footer.",
+      "acceptanceCriteria": [
+        "An FAQ accordion section appears near the end of the page and contains grooming-related Q&A items.",
+        "A “Need help?” support panel follows the FAQ section and visually resembles the Chewy/VetCare reference structure (blue panel, clear contact area).",
+        "Both sections appear at the end of the page (after main content sections) and before the final footer area."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "operation": "modify",
+          "description": "Add an end-of-page “FAQs” section using the shadcn-ui Accordion component for Q&A (Verify the component's usage instructions before implementing.). Populate with English, grooming-specific questions/answers (appointments, what to bring, coat types, nail/teeth add-ons, anxious pets, etc.). Directly after, add a Chewy-style blue “Need help?” support panel with clear contact placeholders (phone/email/hours) styled using theme tokens (bg-primary, text-primary-foreground, rounded corners) and placed before the existing footer."
+        }
+      ]
+    }
+  ]
+}
