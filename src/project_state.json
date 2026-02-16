@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Expand the Pawfect Care Chewy/VetCare-style grooming landing page to include a professional customer-friendly overview with feel-good imagery, an appointment-booking flow (pet details + service + date), expanded grooming services, membership plan mention, trust/vendor partnership messaging, Chewy-accurate brand colors, and end-of-page FAQ/Need Help sections, while fixing broken images and placing the provided images appropriately (including a set at the end).",
   "architectural_notes": [
     "Use VetCare reference image as the primary style/layout guide; keep color palette and typography consistent while adapting content to pet grooming.",
@@ -8,7 +8,8 @@
   ],
   "known_issues": [
     "Reported issue: some images appear broken on the current live page and need to be fixed (paths/loading/cropping).",
-    "Build/deploy is intermittently failing due to an internal configuration problem (requires retry and/or platform support)."
+    "Build/deploy is intermittently failing due to an internal configuration problem (requires retry and/or platform support).",
+    "Images are still broken/not rendering on the live page even after applying an image-path fix and rebuilding; root cause may be incorrect asset placement or incorrect URLs in production."
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -105,6 +106,38 @@
       "title": "Add end-of-page “FAQs” and “Need help?” sections modeled after the Chewy VetCare reference layout but customized for Pawfect Care grooming. FAQs must be grooming-related and written in English; “Need help?” must include clear contact placeholders and match the Chewy-style blue panel feel.",
       "reqIds": [
         "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-all-broken-image-rendering-on-the-live-pawfect-care-landing-page-by-ensuring-every-referenced-image-url-actually-resolves-in-production-no-404s-and-every-image-visibly-renders-in-its-intended-section",
+      "title": "Fix all broken image rendering on the live Pawfect Care landing page by ensuring every referenced image URL actually resolves in production (no 404s) and every image visibly renders in its intended section.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-audit-and-correct-all-image-paths-used-in-frontend-src-components-pawfectcarelanding-tsx-so-they-work-with-the-app-s-deployed-base-path-avoid-hard-coded-absolute-paths-that-break-under-different-host-base-configurations-while-keeping-the-same-visual-layout-and-image-placements",
+      "title": "Audit and correct all image paths used in frontend/src/components/PawfectCareLanding.tsx so they work with the app’s deployed base path (avoid hard-coded absolute paths that break under different host/base configurations), while keeping the same visual layout and image placements.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-user-uploaded-images-required-by-the-landing-page-are-actually-included-in-the-frontend-build-output-as-static-assets-including-the-newly-uploaded-image-18-png-and-that-filenames-referenced-in-code-exactly-match-files-present-in-the-built-app",
+      "title": "Ensure all user-uploaded images required by the landing page are actually included in the frontend build output as static assets, including the newly uploaded image-18.png, and that filenames referenced in code exactly match files present in the built app.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-safe-ui-fallback-for-any-image-that-still-fails-to-load-e-g-via-an-onerror-handler-so-the-page-never-shows-a-broken-image-icon-instead-render-a-styled-placeholder-that-matches-the-site-theme",
+      "title": "Add a safe UI fallback for any image that still fails to load (e.g., via an onError handler) so the page never shows a broken-image icon; instead, render a styled placeholder that matches the site theme.",
+      "reqIds": [
+        "REQ-16"
       ],
       "version": 1
     }

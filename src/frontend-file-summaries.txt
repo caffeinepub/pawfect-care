@@ -1,8 +1,10 @@
 {
   "frontend/src/App.tsx": "Main application component that renders the PawfectCareLanding page as the single-page application entry point.",
-  "frontend/src/components/PawfectCareLanding.tsx": "Complete single-page landing component for Pawfect Care featuring hero, \"What is Pawfect Care\" overview with vendor trust messaging, membership plans section, convenient access section with mobile icon, expanded services (including nail trimming and teeth cleaning), how-it-works, testimonials, image gallery, grooming-focused FAQ accordion, and Chewy-blue \"Need help?\" support panel before footer.",
-  "frontend/src/index.css": "Global styles with OKLCH color system updated to use darker Chewy-blue primary color (matching Chewy VetCare brand) and near-black foreground text (#121212 equivalent) for both light and dark modes.",
+  "frontend/src/components/PawfectCareLanding.tsx": "Complete single-page landing component for Pawfect Care featuring hero, overview, services (including image-18.png in spa treatment card), testimonials, gallery, and FAQ sections—now using SafeImage component with publicAssetUrl helper for all images to ensure proper loading with fallbacks.",
+  "frontend/src/index.css": "Global styles with OKLCH color system for Chewy-blue theme, including new safe-image-fallback and safe-image-loading utility classes for graceful image error handling.",
   "frontend/tailwind.config.js": "Tailwind configuration with extended theme supporting the cheerful pet grooming aesthetic with generous border radius (1rem default) and system font stack.",
   "frontend/index.html": "HTML entry point with updated meta tags and title for Pawfect Care pet grooming landing page.",
-  "frontend/src/components/icons/MobileInHandIcon.tsx": "Reusable SVG icon component depicting a mobile phone in hand with signal waves, styled to match the Chewy theme and used in the \"Convenient access to care\" section."
+  "frontend/src/components/icons/MobileInHandIcon.tsx": "Reusable SVG icon component depicting a mobile phone in hand with signal waves, styled to match the Chewy theme and used in the \"Convenient access to care\" section.",
+  "frontend/src/lib/publicAssetUrl.ts": "Helper function that builds base-path-safe URLs for static assets using Vite's BASE_URL to ensure images resolve correctly under both root and non-root deployments.",
+  "frontend/src/components/SafeImage.tsx": "Reusable image component with error handling that displays a themed placeholder (using muted background and ImageOff icon) instead of browser broken-image icons when images fail to load, preserving layout dimensions."
 }
