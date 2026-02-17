@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ImageOff } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -8,50 +9,41 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 /**
- * SafeImage component that handles image loading failures gracefully
- * with a themed placeholder instead of browser broken-image icons.
+ * Reusable image component with error handling that displays a themed placeholder
+ * instead of browser broken-image icons when images fail to load.
  */
 export default function SafeImage({ 
   src, 
   alt, 
-  className = '', 
-  fallbackClassName = '',
+  className, 
+  fallbackClassName,
   ...props 
 }: SafeImageProps) {
   const [hasError, setHasError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   if (hasError) {
     return (
       <div 
-        className={`safe-image-fallback flex items-center justify-center bg-muted ${fallbackClassName || className}`}
+        className={cn(
+          'safe-image-fallback flex items-center justify-center bg-muted',
+          fallbackClassName,
+          className
+        )}
         role="img"
         aria-label={alt}
       >
-        <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground p-4">
-          <ImageOff className="h-8 w-8 opacity-50" />
-          <span className="text-xs text-center opacity-75">Image unavailable</span>
-        </div>
+        <ImageOff className="h-8 w-8 text-muted-foreground/40" />
       </div>
     );
   }
 
   return (
-    <>
-      {isLoading && (
-        <div className={`safe-image-loading animate-pulse bg-muted ${className}`} />
-      )}
-      <img
-        src={src}
-        alt={alt}
-        className={`${className} ${isLoading ? 'hidden' : ''}`}
-        onError={() => {
-          setHasError(true);
-          setIsLoading(false);
-        }}
-        onLoad={() => setIsLoading(false)}
-        {...props}
-      />
-    </>
+    <img
+      src={src}
+      alt={alt}
+      className={cn('safe-image-loading', className)}
+      onError={() => setHasError(true)}
+      {...props}
+    />
   );
 }

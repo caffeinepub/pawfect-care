@@ -1,194 +1,84 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Pawfect Care — Fix production image rendering (static assets + base-path-safe URLs + fallbacks)",
+  "title": "Restore Chewy-blue theme colors and update landing-page images (Pawfect Care)",
   "requirements": [
     {
-      "id": "REQ-13",
-      "summary": "Eliminate all broken images on the landing page by ensuring every referenced image resolves and renders in production.",
+      "id": "REQ-23",
+      "summary": "Resolve duplicate/conflicting Tailwind theme CSS so the Chewy-blue color variables apply in production (no black-and-white rendering).",
       "acceptanceCriteria": [
-        "Visiting the deployed site shows no broken-image icons/blank image containers in Hero, Overview, Services, and the end-of-page gallery.",
-        "Browser DevTools Network tab shows 200 responses (no 404/ERR) for all image requests used by the landing page.",
-        "All <img> elements in the landing page have non-empty, valid src values at runtime (no undefined/null/empty strings)."
+        "In a production build, the page uses the Chewy-blue theme (primary buttons/links/accents are blue) and no longer renders as mostly black-and-white.",
+        "Only one authoritative set of CSS variables for the Tailwind theme is applied at runtime (no duplicate/conflicting theme token definitions).",
+        "Text and foreground colors remain readable across all sections (no invisible text due to foreground/background conflicts)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/PawfectCareLanding.tsx",
+          "path": "frontend/index.css",
           "operation": "modify",
-          "description": "Replace all hard-coded image src strings with a shared base-path-safe asset URL helper and render images via a single safe image wrapper so every image request resolves in production (Hero, Overview, Services, and gallery)."
-        },
-        {
-          "path": "frontend/src/lib/publicAssetUrl.ts",
-          "operation": "create",
-          "description": "Add a small helper that builds a correct static-asset URL using the runtime base path (e.g., import.meta.env.BASE_URL) so image URLs resolve under both root and non-root deployments."
-        },
-        {
-          "path": "frontend/src/components/SafeImage.tsx",
-          "operation": "create",
-          "description": "Add a reusable SafeImage component that always receives a non-empty src string and handles loading failures gracefully (used across the landing page images)."
+          "description": "Remove or neutralize the conflicting duplicate theme token definitions so this file no longer overrides the authoritative Chewy-blue variables applied by the app at runtime. Ensure there is a single source of truth for theme variables to prevent production overrides. (Selected components context: use the initial-app/build-template-react Tailwind/CSS setup as the baseline; verify the component's usage instructions before implementing.)"
         },
         {
           "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Add a themed placeholder style (using existing CSS variables/tailwind tokens) for image fallbacks so failed images never show broken-image icons and still look intentional."
+          "description": "Confirm Chewy-blue theme variables are the authoritative runtime theme tokens (light/dark) and remain readable; adjust any variable definitions if needed to avoid foreground/background conflicts after removing stylesheet duplication. (Selected components context: aligns with initial-app Tailwind variable strategy; verify the component's usage instructions before implementing.)"
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Verify the document does not load an additional/global stylesheet that reintroduces duplicate theme variables (keep runtime styling driven by the app’s imported CSS only). Apply minimal changes only if an extra stylesheet reference is found/needed to prevent conflicts. (Verify the component's usage instructions before implementing.)"
         }
       ]
     },
     {
-      "id": "REQ-14",
-      "summary": "Audit and correct all image paths in PawfectCareLanding so they work under any deployed base path without changing layout.",
+      "id": "REQ-24",
+      "summary": "Update the “Happy Pets, Happy Hearts” section to render exactly three images: nail cutting, teeth cleaning, and ear cleaning.",
       "acceptanceCriteria": [
-        "No image src in PawfectCareLanding relies on a deployment-breaking absolute path assumption (e.g., paths that fail when the app is not served at domain root).",
-        "All images render correctly when the app is served from both root (/) and a non-root base path environment.",
-        "No console errors related to failed image loads occur on initial page load."
+        "The “Happy Pets, Happy Hearts” section renders exactly 3 images (nail cutting, teeth cleaning, ear cleaning) on desktop and mobile.",
+        "No additional images appear in that section after the change.",
+        "Layout remains visually consistent (no broken spacing, empty gaps, or broken-image icons)."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/PawfectCareLanding.tsx",
           "operation": "modify",
-          "description": "Update all image references currently using absolute paths like \"/assets/...\" to use the new base-path-aware helper (keeping the same image placements, aspect ratios, and layout)."
-        },
-        {
-          "path": "frontend/src/lib/publicAssetUrl.ts",
-          "operation": "create",
-          "description": "Implement base-path-safe URL construction for public static assets to avoid absolute-path assumptions that break under different host/base configurations."
+          "description": "In the “Happy Pets, Happy Hearts” section, remove all non-required images and keep only the three specified (dog nail cutting, dog teeth cleaning, dog ear cleaning). Ensure responsive layout still looks intentional (no empty grid slots) and uses existing SafeImage + publicAssetUrl patterns. (Uses shadcn-ui composed components already present; do not edit frontend/src/components/ui. Verify the component's usage instructions before implementing.)"
         }
       ]
     },
     {
-      "id": "REQ-15",
-      "summary": "Ensure all uploaded landing-page images (including image-18.png) are present as frontend static assets and referenced filenames match the build output.",
+      "id": "REQ-25",
+      "summary": "Replace the Bath & Brush service card image with image-20.png using publicAssetUrl so it loads in production.",
       "acceptanceCriteria": [
-        "The built/deployed app contains the uploaded images at the exact paths referenced by the frontend.",
-        "image-18.png is present as a static asset in the deployed app and can be loaded directly via its resolved URL without error.",
-        "No references remain to image files that are missing from the project’s static assets."
+        "image-20.png is included in the frontend static assets output and is referenced by the Bath & Brush service card.",
+        "In production, the Bath & Brush image loads successfully (no 404) and no broken-image icon appears.",
+        "The Bath & Brush card image sizing/cropping/spacing matches the other service card images (consistent aspect ratio and styling)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/uploaded/image-18.png",
+          "path": "frontend/public/assets/image-20.png",
           "operation": "create",
-          "description": "Add the newly uploaded image-18.png to the public static assets folder so it is included in the frontend build output and can be resolved via the base-path-safe URL helper."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image.png",
-          "operation": "create",
-          "description": "Ensure image.png exists in the public uploaded-assets folder to match the filename referenced by the landing page."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-1.png",
-          "operation": "create",
-          "description": "Ensure image-1.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-2.png",
-          "operation": "create",
-          "description": "Ensure image-2.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-3.png",
-          "operation": "create",
-          "description": "Ensure image-3.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-4.png",
-          "operation": "create",
-          "description": "Ensure image-4.png exists in the public uploaded-assets folder to match the filename referenced by the landing page."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-5.png",
-          "operation": "create",
-          "description": "Ensure image-5.png exists in the public uploaded-assets folder to match the filename referenced by the landing page."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-6.png",
-          "operation": "create",
-          "description": "Ensure image-6.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-7.png",
-          "operation": "create",
-          "description": "Ensure image-7.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-8.png",
-          "operation": "create",
-          "description": "Ensure image-8.png exists in the public uploaded-assets folder to match the filename referenced by the landing page."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-9.png",
-          "operation": "create",
-          "description": "Ensure image-9.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-10.png",
-          "operation": "create",
-          "description": "Ensure image-10.png exists in the public uploaded-assets folder to match the filename referenced by the landing page hero section."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-11.png",
-          "operation": "create",
-          "description": "Ensure image-11.png exists in the public uploaded-assets folder to match the filename referenced by the landing page."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-12.png",
-          "operation": "create",
-          "description": "Ensure image-12.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-13.png",
-          "operation": "create",
-          "description": "Ensure image-13.png exists in the public uploaded-assets folder to match the filename referenced by the services section."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-14.png",
-          "operation": "create",
-          "description": "Ensure image-14.png exists in the public uploaded-assets folder to match the filename referenced by the services section/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-15.png",
-          "operation": "create",
-          "description": "Ensure image-15.png exists in the public uploaded-assets folder to match the filename referenced by the services section/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-16.png",
-          "operation": "create",
-          "description": "Ensure image-16.png exists in the public uploaded-assets folder to match the filename referenced by the services section/gallery."
-        },
-        {
-          "path": "frontend/public/assets/uploaded/image-17.png",
-          "operation": "create",
-          "description": "Ensure image-17.png exists in the public uploaded-assets folder to match the filename referenced by the landing page/gallery."
+          "description": "Add the newly uploaded Bath & Brush card image to the static public assets so it is included in production output."
         },
         {
           "path": "frontend/src/components/PawfectCareLanding.tsx",
           "operation": "modify",
-          "description": "Verify the landing page references only filenames that exist under frontend/public/assets/uploaded/ (including image-18.png) and remove/replace any references to missing files so the deployed build contains all required assets."
+          "description": "Update the Bath & Brush service card image source to use publicAssetUrl('/assets/image-20.png') and keep the same image container styling (aspect ratio/object-fit/hover effects) as the other service cards for consistent sizing. (Verify the component's usage instructions before implementing.)"
         }
       ]
     },
     {
-      "id": "REQ-16",
-      "summary": "Add a themed, layout-preserving fallback so failed images never show browser broken-image icons across the landing page.",
+      "id": "REQ-26",
+      "summary": "Ensure the repository has clear build/deploy steps so the updated frontend can be rebuilt and deployed with the restored theme and image changes.",
       "acceptanceCriteria": [
-        "If an image fails to load, the UI replaces it with a consistent themed placeholder (not the browser broken-image icon).",
-        "The fallback preserves layout dimensions to avoid content jump/layout shift.",
-        "Fallback behavior is applied to all landing page images (hero, overview grid, services cards, and gallery strip)."
+        "The live production site reflects the restored Chewy-blue theme colors.",
+        "The live production site shows exactly 3 images in “Happy Pets, Happy Hearts” (nail cutting, teeth cleaning, ear cleaning).",
+        "The live production site shows image-20.png on the Bath & Brush service card."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/SafeImage.tsx",
+          "path": "frontend/README.md",
           "operation": "create",
-          "description": "Implement an onError-based fallback that swaps the failed <img> for a themed placeholder while preserving the intended dimensions (support passing width/height or relying on the parent aspect-ratio wrapper)."
-        },
-        {
-          "path": "frontend/src/components/PawfectCareLanding.tsx",
-          "operation": "modify",
-          "description": "Use the SafeImage component for every landing page image (hero, overview grid, services cards, and gallery strip) so fallback behavior is consistently applied everywhere."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add minimal CSS classes used by SafeImage to render a consistent placeholder (matching the existing theme tokens) and to keep spacing/dimensions stable during fallback."
+          "description": "Document the exact frontend rebuild and deployment steps/checks to validate the Chewy-blue theme and the two image updates in a production build (including verifying no duplicate theme CSS is shipped). Keep instructions aligned with the existing build-template-react/github-export-icp-cli setup. (Verify the component's usage instructions before implementing.)"
         }
       ]
     }

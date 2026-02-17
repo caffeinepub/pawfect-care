@@ -1,69 +1,33 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-16T23:01:15.329Z",
+  "generatedAt": "2026-02-17T00:36:04.224Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 4,
-    "implemented": 4,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-13",
-        "summary": "Fix all broken image rendering on the live Pawfect Care landing page by ensuring every referenced image URL actually resolves in production (no 404s) and every image visibly renders in its intended section.",
+        "id": "REQ-23",
+        "summary": "Fix the production styling issue where the Pawfect Care landing page appears black-and-white by ensuring the intended Chewy-blue Tailwind theme variables are applied at runtime and are not overridden by conflicting/duplicate theme stylesheets (notably resolve any conflict between frontend/index.css and frontend/src/index.css).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/PawfectCareLanding.tsx",
-          "frontend/src/lib/publicAssetUrl.ts",
-          "frontend/src/components/SafeImage.tsx",
-          "frontend/src/index.css"
+          "frontend/index.css",
+          "frontend/src/index.css",
+          "frontend/index.html"
         ],
         "matchedFiles": [
-          "frontend/src/components/PawfectCareLanding.tsx",
-          "frontend/src/lib/publicAssetUrl.ts",
-          "frontend/src/components/SafeImage.tsx",
-          "frontend/src/index.css"
+          "frontend/index.css"
         ]
       },
       {
-        "id": "REQ-14",
-        "summary": "Audit and correct all image paths used in frontend/src/components/PawfectCareLanding.tsx so they work with the app’s deployed base path (avoid hard-coded absolute paths that break under different host/base configurations), while keeping the same visual layout and image placements.",
+        "id": "REQ-24",
+        "summary": "In the “Happy Pets, Happy Hearts” section of frontend/src/components/PawfectCareLanding.tsx, keep only three images: the dog nail cutting image, the dog teeth cleaning image, and the dog ear cleaning image; remove all other images from that section.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/PawfectCareLanding.tsx",
-          "frontend/src/lib/publicAssetUrl.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/PawfectCareLanding.tsx",
-          "frontend/src/lib/publicAssetUrl.ts"
-        ]
-      },
-      {
-        "id": "REQ-15",
-        "summary": "Ensure all user-uploaded images required by the landing page are actually included in the frontend build output as static assets, including the newly uploaded image-18.png, and that filenames referenced in code exactly match files present in the built app.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/public/assets/uploaded/image-18.png",
-          "frontend/public/assets/uploaded/image.png",
-          "frontend/public/assets/uploaded/image-1.png",
-          "frontend/public/assets/uploaded/image-2.png",
-          "frontend/public/assets/uploaded/image-3.png",
-          "frontend/public/assets/uploaded/image-4.png",
-          "frontend/public/assets/uploaded/image-5.png",
-          "frontend/public/assets/uploaded/image-6.png",
-          "frontend/public/assets/uploaded/image-7.png",
-          "frontend/public/assets/uploaded/image-8.png",
-          "frontend/public/assets/uploaded/image-9.png",
-          "frontend/public/assets/uploaded/image-10.png",
-          "frontend/public/assets/uploaded/image-11.png",
-          "frontend/public/assets/uploaded/image-12.png",
-          "frontend/public/assets/uploaded/image-13.png",
-          "frontend/public/assets/uploaded/image-14.png",
-          "frontend/public/assets/uploaded/image-15.png",
-          "frontend/public/assets/uploaded/image-16.png",
-          "frontend/public/assets/uploaded/image-17.png",
           "frontend/src/components/PawfectCareLanding.tsx"
         ],
         "matchedFiles": [
@@ -71,19 +35,25 @@
         ]
       },
       {
-        "id": "REQ-16",
-        "summary": "Add a safe UI fallback for any image that still fails to load (e.g., via an onError handler) so the page never shows a broken-image icon; instead, render a styled placeholder that matches the site theme.",
+        "id": "REQ-25",
+        "summary": "Replace the Bath & Brush service card image in the Services section of frontend/src/components/PawfectCareLanding.tsx with the newly uploaded image file image-20.png, using a base-path-safe asset URL strategy (publicAssetUrl) so it renders correctly in production.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/SafeImage.tsx",
-          "frontend/src/components/PawfectCareLanding.tsx",
-          "frontend/src/index.css"
+          "frontend/public/assets/image-20.png",
+          "frontend/src/components/PawfectCareLanding.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/SafeImage.tsx",
-          "frontend/src/components/PawfectCareLanding.tsx",
-          "frontend/src/index.css"
+          "frontend/src/components/PawfectCareLanding.tsx"
         ]
+      },
+      {
+        "id": "REQ-26",
+        "summary": "Rebuild and deploy the updated Pawfect Care Draft Version 2 frontend so the live production deployment includes the restored Chewy-blue colors and the specified image updates.",
+        "status": "missing",
+        "plannedFiles": [
+          "frontend/README.md"
+        ],
+        "matchedFiles": []
       }
     ]
   },
@@ -92,10 +62,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/index.css",
     "frontend/src/components/PawfectCareLanding.tsx",
-    "frontend/src/components/SafeImage.tsx",
-    "frontend/src/index.css",
-    "frontend/src/lib/publicAssetUrl.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

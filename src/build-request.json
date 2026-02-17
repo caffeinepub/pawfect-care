@@ -1,90 +1,100 @@
 {
   "kind": "build_request",
-  "title": "Fix broken uploaded images rendering in production",
+  "title": "Restore Chewy-blue theme colors and update specific landing-page images",
   "projectName": "Pawfect Care",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-13",
-      "text": "Fix all broken image rendering on the live Pawfect Care landing page by ensuring every referenced image URL actually resolves in production (no 404s) and every image visibly renders in its intended section.",
+      "id": "REQ-23",
+      "text": "Fix the production styling issue where the Pawfect Care landing page appears black-and-white by ensuring the intended Chewy-blue Tailwind theme variables are applied at runtime and are not overridden by conflicting/duplicate theme stylesheets (notably resolve any conflict between frontend/index.css and frontend/src/index.css).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "my images are still broken why \ncan youy fix it"
+          "The website doesnot have any colors its jus black and white , there were colors previously but now i dont see it i have asked you to use chewy blue colors in our previous conversation"
         ]
       },
       "acceptanceCriteria": [
-        "Visiting the deployed site shows no broken-image icons/blank image containers in Hero, Overview, Services, and the end-of-page gallery.",
-        "Browser DevTools Network tab shows 200 responses (no 404/ERR) for all image requests used by the landing page.",
-        "All <img> elements in the landing page have non-empty, valid src values at runtime (no undefined/null/empty strings)."
+        "In a production build, the page uses the Chewy-blue theme (primary buttons/links/accents are blue) and no longer renders as mostly black-and-white.",
+        "Only one authoritative set of CSS variables for the Tailwind theme is applied at runtime (no duplicate/conflicting theme token definitions).",
+        "Text and foreground colors remain readable across all sections (no invisible text due to foreground/background conflicts)."
       ]
     },
     {
-      "id": "REQ-14",
-      "text": "Audit and correct all image paths used in frontend/src/components/PawfectCareLanding.tsx so they work with the app’s deployed base path (avoid hard-coded absolute paths that break under different host/base configurations), while keeping the same visual layout and image placements.",
+      "id": "REQ-24",
+      "text": "In the “Happy Pets, Happy Hearts” section of frontend/src/components/PawfectCareLanding.tsx, keep only three images: the dog nail cutting image, the dog teeth cleaning image, and the dog ear cleaning image; remove all other images from that section.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "my images are still broken why \ncan youy fix it"
+          "for Happy Pets, Happy Hearts section keep only 3 happy pet  images",
+          "keep image of dog with nail cutting, image of dog with teeth cleaning , image of dog with ear cleaning thats it",
+          "yes"
         ]
       },
       "acceptanceCriteria": [
-        "No image src in PawfectCareLanding relies on a deployment-breaking absolute path assumption (e.g., paths that fail when the app is not served at domain root).",
-        "All images render correctly when the app is served from both root (/) and a non-root base path environment.",
-        "No console errors related to failed image loads occur on initial page load."
+        "The “Happy Pets, Happy Hearts” section renders exactly 3 images (nail cutting, teeth cleaning, ear cleaning) on desktop and mobile.",
+        "No additional images appear in that section after the change.",
+        "Layout remains visually consistent (no broken spacing, empty gaps, or broken-image icons)."
       ]
     },
     {
-      "id": "REQ-15",
-      "text": "Ensure all user-uploaded images required by the landing page are actually included in the frontend build output as static assets, including the newly uploaded image-18.png, and that filenames referenced in code exactly match files present in the built app.",
+      "id": "REQ-25",
+      "text": "Replace the Bath & Brush service card image in the Services section of frontend/src/components/PawfectCareLanding.tsx with the newly uploaded image file image-20.png, using a base-path-safe asset URL strategy (publicAssetUrl) so it renders correctly in production.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4",
+          "msg-5",
+          "msg-11"
         ],
         "quotes": [
-          "The user has uploaded 2 image(s): image-18.png, image-18.png."
+          "Change the image of bath & brush to the one i shared now",
+          "do you mean the Bath & Brush service card image in the Services section should be replaced with the newly uploaded image (image‑20.png)?",
+          "Yes"
         ]
       },
       "acceptanceCriteria": [
-        "The built/deployed app contains the uploaded images at the exact paths referenced by the frontend.",
-        "image-18.png is present as a static asset in the deployed app and can be loaded directly via its resolved URL without error.",
-        "No references remain to image files that are missing from the project’s static assets."
+        "image-20.png is included in the frontend static assets output and is referenced by the Bath & Brush service card.",
+        "In production, the Bath & Brush image loads successfully (no 404) and no broken-image icon appears.",
+        "The Bath & Brush card image sizing/cropping/spacing matches the other service card images (consistent aspect ratio and styling)."
       ]
     },
     {
-      "id": "REQ-16",
-      "text": "Add a safe UI fallback for any image that still fails to load (e.g., via an onError handler) so the page never shows a broken-image icon; instead, render a styled placeholder that matches the site theme.",
-      "target": "frontend",
+      "id": "REQ-26",
+      "text": "Rebuild and deploy the updated Pawfect Care Draft Version 2 frontend so the live production deployment includes the restored Chewy-blue colors and the specified image updates.",
+      "target": "unknown",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-12",
+          "msg-13"
         ],
         "quotes": [
-          "my images are still broken why \ncan youy fix it"
+          "1. yes \n2. Yes",
+          "Great — I’ll run the build again with all the updates exactly as confirmed."
         ]
       },
       "acceptanceCriteria": [
-        "If an image fails to load, the UI replaces it with a consistent themed placeholder (not the browser broken-image icon).",
-        "The fallback preserves layout dimensions to avoid content jump/layout shift.",
-        "Fallback behavior is applied to all landing page images (hero, overview grid, services cards, and gallery strip)."
+        "The live production site reflects the restored Chewy-blue theme colors.",
+        "The live production site shows exactly 3 images in “Happy Pets, Happy Hearts” (nail cutting, teeth cleaning, ear cleaning).",
+        "The live production site shows image-20.png on the Bath & Brush service card."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Do not introduce new backend services or external storage/CDNs; serve images as frontend static assets.",
-    "Keep all user-facing text in English."
+    "Do not edit files under frontend/src/components/ui (Shadcn components); compose them instead.",
+    "Do not edit immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Keep backend as a single Motoko actor in backend/main.mo; only add migration logic if persistent state schema changes (not expected for this request).",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Do not redesign the landing page layout or change existing section content beyond what is necessary to fix image loading.",
-    "Do not add new product features (e.g., new booking logic, authentication changes) as part of this fix."
+    "Do not add new landing-page sections or new product features beyond fixing theme colors and the specified image changes.",
+    "Do not change the overall Pawfect Care content strategy/copy except as required to implement the image removals/replacements.",
+    "Do not introduce new authentication providers or third-party integrations."
   ],
   "imageRequirements": {
     "required": [],

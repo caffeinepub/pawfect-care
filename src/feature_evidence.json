@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-fix-all-broken-image-rendering-on-the-live-pawfect-care-landing-page-by-ensuring-every-referenced-image-url-actually-resolves-in-production-no-404s-and-every-image-visibly-renders-in-its-intended-section",
-      "featureTitle": "Fix all broken image rendering on the live Pawfect Care landing page by ensuring every referenced image URL actually resolves in production (no 404s) and every image visibly renders in its intended section.",
+      "featureId": "feature-fix-the-production-styling-issue-where-the-pawfect-care-landing-page-appears-black-and-white-by-ensuring-the-intended-chewy-blue-tailwind-theme-variables-are-applied-at-runtime-and-are-not-overridden-by-conflicting-duplicate-theme-stylesheets-notably-resolve-any-conflict-between-frontend-index-css-and-frontend-src-index-css",
+      "featureTitle": "Fix the production styling issue where the Pawfect Care landing page appears black-and-white by ensuring the intended Chewy-blue Tailwind theme variables are applied at runtime and are not overridden by conflicting/duplicate theme stylesheets (notably resolve any conflict between frontend/index.css and frontend/src/index.css).",
       "files": [
-        "frontend/src/components/PawfectCareLanding.tsx",
-        "frontend/src/components/SafeImage.tsx",
-        "frontend/src/index.css",
-        "frontend/src/lib/publicAssetUrl.ts"
+        "frontend/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -18,32 +15,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-13"
+        "REQ-23"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-audit-and-correct-all-image-paths-used-in-frontend-src-components-pawfectcarelanding-tsx-so-they-work-with-the-app-s-deployed-base-path-avoid-hard-coded-absolute-paths-that-break-under-different-host-base-configurations-while-keeping-the-same-visual-layout-and-image-placements",
-      "featureTitle": "Audit and correct all image paths used in frontend/src/components/PawfectCareLanding.tsx so they work with the app’s deployed base path (avoid hard-coded absolute paths that break under different host/base configurations), while keeping the same visual layout and image placements.",
-      "files": [
-        "frontend/src/components/PawfectCareLanding.tsx",
-        "frontend/src/lib/publicAssetUrl.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-14"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-all-user-uploaded-images-required-by-the-landing-page-are-actually-included-in-the-frontend-build-output-as-static-assets-including-the-newly-uploaded-image-18-png-and-that-filenames-referenced-in-code-exactly-match-files-present-in-the-built-app",
-      "featureTitle": "Ensure all user-uploaded images required by the landing page are actually included in the frontend build output as static assets, including the newly uploaded image-18.png, and that filenames referenced in code exactly match files present in the built app.",
+      "featureId": "feature-in-the-happy-pets-happy-hearts-section-of-frontend-src-components-pawfectcarelanding-tsx-keep-only-three-images-the-dog-nail-cutting-image-the-dog-teeth-cleaning-image-and-the-dog-ear-cleaning-image-remove-all-other-images-from-that-section",
+      "featureTitle": "In the “Happy Pets, Happy Hearts” section of frontend/src/components/PawfectCareLanding.tsx, keep only three images: the dog nail cutting image, the dog teeth cleaning image, and the dog ear cleaning image; remove all other images from that section.",
       "files": [
         "frontend/src/components/PawfectCareLanding.tsx"
       ],
@@ -55,17 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-15"
+        "REQ-24"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-a-safe-ui-fallback-for-any-image-that-still-fails-to-load-e-g-via-an-onerror-handler-so-the-page-never-shows-a-broken-image-icon-instead-render-a-styled-placeholder-that-matches-the-site-theme",
-      "featureTitle": "Add a safe UI fallback for any image that still fails to load (e.g., via an onError handler) so the page never shows a broken-image icon; instead, render a styled placeholder that matches the site theme.",
+      "featureId": "feature-replace-the-bath-brush-service-card-image-in-the-services-section-of-frontend-src-components-pawfectcarelanding-tsx-with-the-newly-uploaded-image-file-image-20-png-using-a-base-path-safe-asset-url-strategy-publicasseturl-so-it-renders-correctly-in-production",
+      "featureTitle": "Replace the Bath & Brush service card image in the Services section of frontend/src/components/PawfectCareLanding.tsx with the newly uploaded image file image-20.png, using a base-path-safe asset URL strategy (publicAssetUrl) so it renders correctly in production.",
       "files": [
-        "frontend/src/components/PawfectCareLanding.tsx",
-        "frontend/src/components/SafeImage.tsx",
-        "frontend/src/index.css"
+        "frontend/src/components/PawfectCareLanding.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -75,7 +51,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-16"
+        "REQ-25"
       ],
       "confidence": "high"
     }

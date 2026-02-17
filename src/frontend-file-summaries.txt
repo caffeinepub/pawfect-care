@@ -1,10 +1,11 @@
 {
   "frontend/src/App.tsx": "Main application component that renders the PawfectCareLanding page as the single-page application entry point.",
-  "frontend/src/components/PawfectCareLanding.tsx": "Complete single-page landing component for Pawfect Care featuring hero, overview, services (including image-18.png in spa treatment card), testimonials, gallery, and FAQ sections—now using SafeImage component with publicAssetUrl helper for all images to ensure proper loading with fallbacks.",
+  "frontend/src/components/PawfectCareLanding.tsx": "Complete single-page landing component for Pawfect Care featuring hero, overview, services (with image-20.png for Bath & Brush card), testimonials, Happy Pets section with exactly 3 images (nail cutting, teeth cleaning, ear cleaning), and FAQ sections using SafeImage wrapper with base-path-safe URLs.",
   "frontend/src/index.css": "Global styles with OKLCH color system for Chewy-blue theme, including new safe-image-fallback and safe-image-loading utility classes for graceful image error handling.",
   "frontend/tailwind.config.js": "Tailwind configuration with extended theme supporting the cheerful pet grooming aesthetic with generous border radius (1rem default) and system font stack.",
-  "frontend/index.html": "HTML entry point with updated meta tags and title for Pawfect Care pet grooming landing page.",
+  "frontend/index.html": "HTML entry point with meta tags and title for Pawfect Care pet grooming landing page, loading only the React app without any additional stylesheets.",
   "frontend/src/components/icons/MobileInHandIcon.tsx": "Reusable SVG icon component depicting a mobile phone in hand with signal waves, styled to match the Chewy theme and used in the \"Convenient access to care\" section.",
   "frontend/src/lib/publicAssetUrl.ts": "Helper function that builds base-path-safe URLs for static assets using Vite's BASE_URL to ensure images resolve correctly under both root and non-root deployments.",
-  "frontend/src/components/SafeImage.tsx": "Reusable image component with error handling that displays a themed placeholder (using muted background and ImageOff icon) instead of browser broken-image icons when images fail to load, preserving layout dimensions."
+  "frontend/src/components/SafeImage.tsx": "Reusable image component with error handling that displays a themed placeholder (using muted background and ImageOff icon) instead of browser broken-image icons when images fail to load, preserving layout dimensions.",
+  "frontend/src/main.tsx": "Application entry point that renders the App component in StrictMode."
 }

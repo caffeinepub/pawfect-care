@@ -88,12 +88,10 @@ export default function PawfectCareLanding() {
             <div className="relative">
               <div className="relative aspect-square overflow-hidden rounded-3xl bg-muted shadow-2xl">
                 <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-10.png')}
+                  src={publicAssetUrl('/assets/image-10.png')}
                   alt="Happy groomed pet"
                   className="h-full w-full object-cover"
                   loading="eager"
-                  width={600}
-                  height={600}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
               </div>
@@ -166,44 +164,36 @@ export default function PawfectCareLanding() {
               <div className="space-y-4">
                 <div className="aspect-square overflow-hidden rounded-2xl shadow-lg">
                   <SafeImage
-                    src={publicAssetUrl('assets/uploaded/image.png')}
+                    src={publicAssetUrl('/assets/image.png')}
                     alt="Spa treatment for cats"
                     className="h-full w-full object-cover"
                     loading="lazy"
-                    width={300}
-                    height={300}
                   />
                 </div>
                 <div className="aspect-square overflow-hidden rounded-2xl shadow-lg">
                   <SafeImage
-                    src={publicAssetUrl('assets/uploaded/image-4.png')}
+                    src={publicAssetUrl('/assets/image-4.png')}
                     alt="Happy pet after grooming"
                     className="h-full w-full object-cover"
                     loading="lazy"
-                    width={300}
-                    height={300}
                   />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
                 <div className="aspect-square overflow-hidden rounded-2xl shadow-lg">
                   <SafeImage
-                    src={publicAssetUrl('assets/uploaded/image-8.png')}
+                    src={publicAssetUrl('/assets/image-8.png')}
                     alt="Professional bath service"
                     className="h-full w-full object-cover"
                     loading="lazy"
-                    width={300}
-                    height={300}
                   />
                 </div>
                 <div className="aspect-square overflow-hidden rounded-2xl shadow-lg">
                   <SafeImage
-                    src={publicAssetUrl('assets/uploaded/image-11.png')}
+                    src={publicAssetUrl('/assets/image-11.png')}
                     alt="Pet grooming session"
                     className="h-full w-full object-cover"
                     loading="lazy"
-                    width={300}
-                    height={300}
                   />
                 </div>
               </div>
@@ -236,12 +226,10 @@ export default function PawfectCareLanding() {
             <div className="order-2 lg:order-1">
               <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
                 <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-5.png')}
+                  src={publicAssetUrl('/assets/image-5.png')}
                   alt="Pet enjoying outdoor time"
                   className="h-full w-full object-cover"
                   loading="lazy"
-                  width={600}
-                  height={450}
                 />
               </div>
             </div>
@@ -327,12 +315,6 @@ export default function PawfectCareLanding() {
                 </p>
               </Card>
             </div>
-
-            <div className="text-center mt-8">
-              <Button variant="link" className="text-primary">
-                Learn more about our mobile experience →
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -345,338 +327,225 @@ export default function PawfectCareLanding() {
               Our Services
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Tail-Wagging Grooming Services
+              Tailored Grooming for Every Pet
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From basic baths to full spa treatments, we offer everything your furry friend needs to look and feel amazing.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              From basic baths to full spa treatments, we offer comprehensive grooming services 
+              designed to keep your pet healthy, happy, and looking their best.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 rounded-2xl overflow-hidden">
-              <div className="aspect-video overflow-hidden bg-muted">
+            <Card className="overflow-hidden rounded-2xl border-2 hover:shadow-xl transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-13.png')}
-                  alt="Full grooming service"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  width={400}
-                  height={225}
-                />
-              </div>
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Scissors className="h-6 w-6 text-primary" />
-                  </div>
-                  <Badge variant="secondary" className="rounded-full">Popular</Badge>
-                </div>
-                <CardTitle className="text-2xl">Full Grooming</CardTitle>
-                <CardDescription className="text-base">
-                  Complete grooming package including bath, haircut, nail trim, and ear cleaning.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Professional haircut & styling</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Luxury bath with premium products</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Nail trimming & paw care</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Ear cleaning & teeth brushing</span>
-                  </li>
-                </ul>
-                <Button className="w-full rounded-full">Book Now</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 rounded-2xl overflow-hidden">
-              <div className="aspect-video overflow-hidden bg-muted">
-                <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-14.png')}
+                  src={publicAssetUrl('/assets/image-20.png')}
                   alt="Bath and brush service"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
-                  width={400}
-                  height={225}
                 />
               </div>
               <CardHeader>
-                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Bath className="h-6 w-6 text-primary" />
+                <div className="flex items-center gap-2 mb-2">
+                  <Bath className="h-5 w-5 text-primary" />
+                  <CardTitle>Bath & Brush</CardTitle>
                 </div>
-                <CardTitle className="text-2xl">Bath & Brush</CardTitle>
-                <CardDescription className="text-base">
-                  Keep your pet fresh and clean with our signature bath service.
+                <CardDescription>
+                  Complete bath with premium shampoo, thorough brushing, nail trim, and ear cleaning. 
+                  Perfect for maintaining your pet's coat between full grooming sessions.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Gentle, thorough bathing</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Blow-dry & brush out</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>De-shedding treatment</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Cologne spritz</span>
-                  </li>
-                </ul>
-                <Button className="w-full rounded-full" variant="outline">Book Now</Button>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-primary">From $45</span>
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    Learn More
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 rounded-2xl overflow-hidden">
-              <div className="aspect-video overflow-hidden bg-muted">
+            <Card className="overflow-hidden rounded-2xl border-2 hover:shadow-xl transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-15.png')}
-                  alt="Nail trimming service"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  src={publicAssetUrl('/assets/image-7.png')}
+                  alt="Full grooming service"
+                  className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
-                  width={400}
-                  height={225}
                 />
               </div>
               <CardHeader>
-                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Scissors className="h-6 w-6 text-primary" />
+                <div className="flex items-center gap-2 mb-2">
+                  <Scissors className="h-5 w-5 text-primary" />
+                  <CardTitle>Full Grooming</CardTitle>
                 </div>
-                <CardTitle className="text-2xl">Nail Trimming</CardTitle>
-                <CardDescription className="text-base">
-                  Quick and stress-free nail care for your pet's comfort.
+                <CardDescription>
+                  The complete package: bath, haircut styled to breed standards or your preference, 
+                  nail trim, ear cleaning, and teeth brushing. Your pet will look and feel amazing!
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Professional nail trimming</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Paw pad care</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Quick & gentle process</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Stress-free experience</span>
-                  </li>
-                </ul>
-                <Button className="w-full rounded-full" variant="outline">Book Now</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 rounded-2xl overflow-hidden">
-              <div className="aspect-video overflow-hidden bg-muted">
-                <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-16.png')}
-                  alt="Teeth cleaning service"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  width={400}
-                  height={225}
-                />
-              </div>
-              <CardHeader>
-                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Smile className="h-6 w-6 text-primary" />
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-primary">From $75</span>
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    Learn More
+                  </Button>
                 </div>
-                <CardTitle className="text-2xl">Teeth Cleaning</CardTitle>
-                <CardDescription className="text-base">
-                  Maintain your pet's dental health with professional teeth cleaning.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Gentle teeth brushing</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Plaque & tartar removal</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Fresh breath treatment</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Dental health check</span>
-                  </li>
-                </ul>
-                <Button className="w-full rounded-full" variant="outline">Book Now</Button>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 rounded-2xl overflow-hidden">
-              <div className="aspect-video overflow-hidden bg-muted">
+            <Card className="overflow-hidden rounded-2xl border-2 hover:shadow-xl transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-muted">
                 <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-18.png')}
+                  src={publicAssetUrl('/assets/image-19.png')}
                   alt="Spa treatment service"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   loading="lazy"
-                  width={400}
-                  height={225}
                 />
               </div>
               <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Sparkles className="h-6 w-6 text-primary" />
-                  </div>
-                  <Badge variant="secondary" className="rounded-full">Premium</Badge>
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  <CardTitle>Spa Treatment</CardTitle>
                 </div>
-                <CardTitle className="text-2xl">Spa Treatment</CardTitle>
-                <CardDescription className="text-base">
-                  Ultimate pampering experience with luxury spa services.
+                <CardDescription>
+                  Luxury pampering with deep conditioning treatment, pawdicure, facial scrub, 
+                  and aromatherapy. The ultimate relaxation experience for your beloved companion.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Aromatherapy bath</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Deep conditioning treatment</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Paw & nose balm</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Relaxing massage</span>
-                  </li>
-                </ul>
-                <Button className="w-full rounded-full">Book Now</Button>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-primary">From $95</span>
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    Learn More
+                  </Button>
+                </div>
               </CardContent>
             </Card>
+          </div>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 rounded-2xl overflow-hidden">
-              <div className="aspect-video overflow-hidden bg-muted">
-                <SafeImage
-                  src={publicAssetUrl('assets/uploaded/image-17.png')}
-                  alt="Specialty services"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  width={400}
-                  height={225}
-                />
-              </div>
-              <CardHeader>
-                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Heart className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-2xl">Specialty Services</CardTitle>
-                <CardDescription className="text-base">
-                  Custom grooming solutions for unique needs and breeds.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Breed-specific styling</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Senior pet care</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Sensitive skin treatments</span>
-                  </li>
-                  <li className="flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-primary" />
-                    <span>Creative grooming</span>
-                  </li>
-                </ul>
-                <Button className="w-full rounded-full" variant="outline">Book Now</Button>
-              </CardContent>
-            </Card>
+          <div className="mt-12 text-center">
+            <Button size="lg" className="rounded-full text-base px-8">
+              View All Services & Pricing
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Happy Pets, Happy Hearts - Gallery Section */}
+      <section className="py-20 md:py-28 bg-background">
+        <div className="container">
+          <div className="text-center space-y-4 mb-16">
+            <Badge variant="secondary" className="rounded-full px-4 py-1.5">
+              <Heart className="mr-1.5 h-3.5 w-3.5 inline" />
+              Happy Pets, Happy Hearts
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              See the Pawfect Care Difference
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Every grooming session is a chance to show your pet some extra love. 
+              Here's a glimpse of our professional care in action.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+            <div className="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow">
+              <SafeImage
+                src={publicAssetUrl('/assets/image-13.png')}
+                alt="Dog nail cutting service"
+                className="h-full w-full object-cover aspect-square hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow">
+              <SafeImage
+                src={publicAssetUrl('/assets/image-14.png')}
+                alt="Dog teeth cleaning service"
+                className="h-full w-full object-cover aspect-square hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-shadow">
+              <SafeImage
+                src={publicAssetUrl('/assets/image-15.png')}
+                alt="Dog ear cleaning service"
+                className="h-full w-full object-cover aspect-square hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground mb-6">
+              Professional care for every aspect of your pet's grooming needs
+            </p>
+            <Button size="lg" className="rounded-full text-base px-8">
+              Book Your Pet's Grooming
+            </Button>
           </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 md:py-28 bg-background">
+      <section id="how-it-works" className="py-20 md:py-28 bg-accent/10">
         <div className="container">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="secondary" className="rounded-full px-4 py-1.5">
               Simple Process
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              How It Works
+              How Pawfect Care Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Getting your pet groomed has never been easier. Just three simple steps to a happier, healthier pet.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Getting started is easy. Just four simple steps to give your pet the care they deserve.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
-            <div className="relative">
-              <div className="text-center space-y-4">
-                <div className="mx-auto h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">1</span>
-                </div>
-                <h3 className="text-xl font-bold">Book Online</h3>
-                <p className="text-muted-foreground">
-                  Choose your service, select a time that works for you, and book instantly through our app or website.
-                </p>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            <div className="text-center space-y-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-2xl font-bold text-primary">1</span>
               </div>
-              <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-border" />
+              <h3 className="text-xl font-bold">Create Profile</h3>
+              <p className="text-muted-foreground">
+                Tell us about your pet's breed, size, and any special needs or preferences
+              </p>
             </div>
 
-            <div className="relative">
-              <div className="text-center space-y-4">
-                <div className="mx-auto h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">2</span>
-                </div>
-                <h3 className="text-xl font-bold">Drop Off Your Pet</h3>
-                <p className="text-muted-foreground">
-                  Bring your furry friend to our location at your scheduled time. Our team will greet you with a smile.
-                </p>
+            <div className="text-center space-y-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-2xl font-bold text-primary">2</span>
               </div>
-              <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-border" />
+              <h3 className="text-xl font-bold">Choose Service</h3>
+              <p className="text-muted-foreground">
+                Select from our range of grooming services and pick a convenient time
+              </p>
             </div>
 
-            <div className="relative">
-              <div className="text-center space-y-4">
-                <div className="mx-auto h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-primary">3</span>
-                </div>
-                <h3 className="text-xl font-bold">Pick Up Happy Pet</h3>
-                <p className="text-muted-foreground">
-                  Receive updates during grooming, then pick up your freshly groomed, tail-wagging companion!
-                </p>
+            <div className="text-center space-y-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-2xl font-bold text-primary">3</span>
               </div>
+              <h3 className="text-xl font-bold">Drop Off</h3>
+              <p className="text-muted-foreground">
+                Bring your pet to your chosen Chewy-verified groomer at the scheduled time
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
+                <span className="text-2xl font-bold text-primary">4</span>
+              </div>
+              <h3 className="text-xl font-bold">Pick Up Happy</h3>
+              <p className="text-muted-foreground">
+                Collect your freshly groomed, happy pet and receive care notes from the groomer
+              </p>
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button size="lg" className="rounded-full px-8">
+          <div className="mt-16 text-center">
+            <Button size="lg" className="rounded-full text-base px-8">
               Get Started Today
             </Button>
           </div>
@@ -684,7 +553,7 @@ export default function PawfectCareLanding() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 md:py-28 bg-accent/10">
+      <section id="testimonials" className="py-20 md:py-28 bg-background">
         <div className="container">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="secondary" className="rounded-full px-4 py-1.5">
@@ -693,76 +562,70 @@ export default function PawfectCareLanding() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               What Pet Parents Say
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Don't just take our word for it—hear from the humans (and pets!) who love Pawfect Care.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             <Card className="p-6 rounded-2xl border-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
+              <div className="flex items-center gap-1 mb-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                ))}
               </div>
               <p className="text-muted-foreground mb-4">
-                "Absolutely amazing! My golden retriever Max always comes home looking and smelling fantastic. 
-                The groomers are so gentle and caring. Highly recommend!"
+                "My golden retriever Max has never looked better! The groomer was so gentle and patient with him. 
+                I love getting the photos during the appointment—it gives me peace of mind."
               </p>
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary">SJ</span>
+                  <Smile className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <div className="font-semibold">Sarah Johnson</div>
+                  <div className="font-semibold">Sarah M.</div>
                   <div className="text-sm text-muted-foreground">Max's Mom</div>
                 </div>
               </div>
             </Card>
 
             <Card className="p-6 rounded-2xl border-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
+              <div className="flex items-center gap-1 mb-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                ))}
               </div>
               <p className="text-muted-foreground mb-4">
-                "I was nervous about taking my anxious cat Luna for grooming, but the team was incredibly patient. 
-                She actually seemed relaxed when I picked her up!"
+                "Booking through the app is so convenient! Luna used to hate grooming, but the team at Pawfect Care 
+                made her feel comfortable. She actually seems excited to go now!"
               </p>
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary">MC</span>
+                  <Smile className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <div className="font-semibold">Michael Chen</div>
+                  <div className="font-semibold">James T.</div>
                   <div className="text-sm text-muted-foreground">Luna's Dad</div>
                 </div>
               </div>
             </Card>
 
             <Card className="p-6 rounded-2xl border-2">
-              <div className="flex items-center gap-2 mb-4">
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
-                <Star className="h-5 w-5 fill-primary text-primary" />
+              <div className="flex items-center gap-1 mb-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                ))}
               </div>
               <p className="text-muted-foreground mb-4">
-                "Best grooming service we've ever used! The online booking is so convenient, and they send photos 
-                during the appointment. Bella looks like a princess every time!"
+                "As a first-time pet owner, I was nervous about grooming. The Pawfect Care team answered all my questions 
+                and gave me great tips. Bella looks adorable and her coat has never been healthier!"
               </p>
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="text-sm font-semibold text-primary">ER</span>
+                  <Smile className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <div className="font-semibold">Emily Rodriguez</div>
+                  <div className="font-semibold">Emily R.</div>
                   <div className="text-sm text-muted-foreground">Bella's Mom</div>
                 </div>
               </div>
@@ -771,50 +634,9 @@ export default function PawfectCareLanding() {
         </div>
       </section>
 
-      {/* Image Gallery */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container">
-          <div className="text-center space-y-4 mb-16">
-            <Badge variant="secondary" className="rounded-full px-4 py-1.5">
-              Gallery
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Happy Pets, Happy Hearts
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              See the joy and transformation we bring to pets every day.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { src: 'image-1.png', alt: 'Groomed dog smiling' },
-              { src: 'image-2.png', alt: 'Cat after spa treatment' },
-              { src: 'image-3.png', alt: 'Happy puppy post-grooming' },
-              { src: 'image-6.png', alt: 'Fluffy dog after bath' },
-              { src: 'image-7.png', alt: 'Cat enjoying grooming' },
-              { src: 'image-9.png', alt: 'Dog with fresh haircut' },
-              { src: 'image-12.png', alt: 'Pet grooming in progress' },
-              { src: 'image-14.png', alt: 'Happy groomed pet' },
-            ].map((image, index) => (
-              <div key={index} className="aspect-square overflow-hidden rounded-2xl shadow-lg group">
-                <SafeImage
-                  src={publicAssetUrl(`assets/uploaded/${image.src}`)}
-                  alt={image.alt}
-                  className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                  width={300}
-                  height={300}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section id="faq" className="py-20 md:py-28 bg-accent/10">
-        <div className="container max-w-3xl">
+        <div className="container max-w-4xl">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="secondary" className="rounded-full px-4 py-1.5">
               FAQ
@@ -823,92 +645,96 @@ export default function PawfectCareLanding() {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground">
-              Everything you need to know about our grooming services.
+              Everything you need to know about Pawfect Care grooming services.
             </p>
           </div>
 
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem value="item-1" className="bg-background rounded-2xl border-2 px-6">
               <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="font-semibold text-lg">How long does a grooming appointment take?</span>
+                <span className="font-semibold">How do I book a grooming appointment?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6">
-                Most grooming appointments take 2-3 hours depending on your pet's size, coat condition, and the services 
-                selected. We'll give you an estimated time when you book, and we'll send you updates throughout the appointment.
+                Booking is easy! Simply create a profile for your pet, choose your preferred service and time slot, 
+                and select a Chewy-verified groomer near you. You'll receive instant confirmation and reminders 
+                before your appointment.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-2" className="bg-background rounded-2xl border-2 px-6">
               <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="font-semibold text-lg">What should I bring to the appointment?</span>
+                <span className="font-semibold">Are all groomers certified and insured?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6">
-                Just bring your pet! We provide all grooming supplies, including premium shampoos and conditioners. 
-                If your pet has any special products you'd like us to use, feel free to bring them along.
+                Yes! Every groomer in the Pawfect Care network is Chewy-verified, which means they've passed 
+                background checks, hold proper certifications, and carry liability insurance. Your pet's safety 
+                is our top priority.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-3" className="bg-background rounded-2xl border-2 px-6">
               <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="font-semibold text-lg">Do you groom cats as well as dogs?</span>
+                <span className="font-semibold">What if my pet has special needs or anxiety?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6">
-                Yes! We specialize in grooming both cats and dogs. Our groomers are trained in feline-specific handling 
-                techniques to ensure a stress-free experience for your cat.
+                We understand that every pet is unique. When creating your pet's profile, you can note any special 
+                needs, behavioral concerns, or health conditions. Our groomers are trained to work with anxious pets 
+                and will take extra time to ensure your pet feels comfortable and safe.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-4" className="bg-background rounded-2xl border-2 px-6">
               <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="font-semibold text-lg">What if my pet has special needs or anxiety?</span>
+                <span className="font-semibold">How long does a typical grooming session take?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6">
-                We're experienced in working with anxious pets and those with special needs. Please let us know about 
-                any concerns when booking, and we'll take extra time and care to ensure your pet feels safe and comfortable.
+                Grooming time varies based on your pet's size, coat type, and the service selected. A basic bath 
+                and brush typically takes 1-2 hours, while a full grooming session may take 2-3 hours. You'll 
+                receive real-time updates throughout the appointment.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-5" className="bg-background rounded-2xl border-2 px-6">
               <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="font-semibold text-lg">How often should I have my pet groomed?</span>
+                <span className="font-semibold">Can I request a specific groomer?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6">
-                It depends on your pet's breed, coat type, and lifestyle. Generally, dogs benefit from grooming every 4-8 weeks, 
-                while cats may need grooming every 6-12 weeks. We'll provide personalized recommendations based on your pet's needs.
+                Absolutely! Once you've found a groomer your pet loves, you can save them as a favorite and book 
+                directly with them for future appointments. Building a relationship with a trusted groomer helps 
+                your pet feel more comfortable over time.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="item-6" className="bg-background rounded-2xl border-2 px-6">
               <AccordionTrigger className="text-left hover:no-underline py-6">
-                <span className="font-semibold text-lg">What is your cancellation policy?</span>
+                <span className="font-semibold">What's your cancellation policy?</span>
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground pb-6">
-                We understand that plans change! You can cancel or reschedule your appointment up to 24 hours in advance 
-                without any fees. Cancellations within 24 hours may be subject to a small fee.
+                We understand that plans change. You can cancel or reschedule your appointment up to 24 hours 
+                in advance without any fees. Cancellations made less than 24 hours before the appointment may 
+                be subject to a cancellation fee.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
       </section>
 
-      {/* Need Help Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Need Help?
+      {/* CTA Section */}
+      <section className="py-20 md:py-28 bg-primary text-primary-foreground">
+        <div className="container text-center">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Ready to Give Your Pet the Pawfect Care Experience?
             </h2>
             <p className="text-lg opacity-90">
-              Our friendly team is here to answer any questions and help you book the perfect grooming appointment for your pet.
+              Join thousands of happy pet parents who trust Pawfect Care for professional grooming services.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Button size="lg" variant="secondary" className="rounded-full gap-2">
-                <Phone className="h-5 w-5" />
-                Call Us: 1-800-PET-CARE
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="rounded-full text-base px-8">
+                Book Your First Appointment
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full gap-2 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <Mail className="h-5 w-5" />
-                Email Support
+              <Button size="lg" variant="outline" className="rounded-full text-base px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                Download the App
               </Button>
             </div>
           </div>
@@ -916,26 +742,26 @@ export default function PawfectCareLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-background border-t py-12">
+      <footer className="bg-muted/30 border-t py-12">
         <div className="container">
-          <div className="grid gap-8 md:grid-cols-4 mb-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-12">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <Sparkles className="h-6 w-6 text-primary" />
                 <span className="text-xl font-bold text-primary">Pawfect Care</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Professional pet grooming services that make tails wag and whiskers twitch with joy.
+                Professional pet grooming services backed by Chewy's commitment to quality and care.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <SiFacebook className="h-5 w-5" />
+              <div className="flex items-center gap-3">
+                <a href="#" className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <SiFacebook className="h-4 w-4 text-primary" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <SiInstagram className="h-5 w-5" />
+                <a href="#" className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <SiInstagram className="h-4 w-4 text-primary" />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <SiX className="h-5 w-5" />
+                <a href="#" className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                  <SiX className="h-4 w-4 text-primary" />
                 </a>
               </div>
             </div>
@@ -943,11 +769,10 @@ export default function PawfectCareLanding() {
             <div>
               <h3 className="font-semibold mb-4">Services</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#services" className="hover:text-primary transition-colors">Full Grooming</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Bath & Brush</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Nail Trimming</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Teeth Cleaning</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Spa Treatment</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Bath & Brush</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Full Grooming</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Spa Treatment</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Nail Trimming</a></li>
               </ul>
             </div>
 
@@ -955,36 +780,46 @@ export default function PawfectCareLanding() {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-                <li><a href="#how-it-works" className="hover:text-primary transition-colors">How It Works</a></li>
-                <li><a href="#testimonials" className="hover:text-primary transition-colors">Reviews</a></li>
-                <li><a href="#faq" className="hover:text-primary transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Become a Partner</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
+                <li><a href="#" className="hover:text-primary transition-colors">Press</a></li>
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Cookie Policy</a></li>
+              <h3 className="font-semibold mb-4">Contact</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>1-800-PAWFECT</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-primary" />
+                  <span>hello@pawfectcare.com</span>
+                </li>
               </ul>
             </div>
           </div>
 
           <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} Pawfect Care. All rights reserved.</p>
-            <p>
-              Built with <Heart className="inline h-4 w-4 text-red-500 fill-current" /> using{' '}
+            <div>
+              © {currentYear} Pawfect Care. All rights reserved.
+            </div>
+            <div className="flex items-center gap-1">
+              Built with <Heart className="h-4 w-4 text-primary fill-primary" /> using{' '}
               <a 
                 href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(appIdentifier)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="font-medium hover:text-primary transition-colors"
               >
                 caffeine.ai
               </a>
-            </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+            </div>
           </div>
         </div>
       </footer>

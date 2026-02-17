@@ -8,10 +8,108 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({});
+export const Pet = IDL.Record({
+  'id' : IDL.Nat,
+  'age' : IDL.Nat,
+  'name' : IDL.Text,
+  'petType' : IDL.Text,
+});
+export const Appointment = IDL.Record({
+  'date' : IDL.Text,
+  'petId' : IDL.Nat,
+  'purpose' : IDL.Text,
+});
+export const Medication = IDL.Record({
+  'endDate' : IDL.Opt(IDL.Text),
+  'dosage' : IDL.Text,
+  'name' : IDL.Text,
+  'frequency' : IDL.Text,
+  'startDate' : IDL.Text,
+});
+export const VaccinationEvent = IDL.Record({
+  'vaccinationType' : IDL.Text,
+  'date' : IDL.Text,
+  'petId' : IDL.Nat,
+});
+
+export const idlService = IDL.Service({
+  'addAppointment' : IDL.Func([IDL.Nat, IDL.Text, IDL.Text], [], []),
+  'addMedication' : IDL.Func(
+      [IDL.Nat, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Opt(IDL.Text)],
+      [],
+      [],
+    ),
+  'addPet' : IDL.Func([IDL.Text, IDL.Nat, IDL.Text], [IDL.Nat], []),
+  'addVaccinationEvent' : IDL.Func([IDL.Nat, IDL.Text, IDL.Text], [], []),
+  'getAllPets' : IDL.Func([], [IDL.Vec(Pet)], ['query']),
+  'getAppointmentsByPet' : IDL.Func(
+      [IDL.Nat],
+      [IDL.Vec(Appointment)],
+      ['query'],
+    ),
+  'getMedicationsByPet' : IDL.Func([IDL.Nat], [IDL.Vec(Medication)], ['query']),
+  'getPet' : IDL.Func([IDL.Nat], [IDL.Opt(Pet)], ['query']),
+  'getVaccinationsByPet' : IDL.Func(
+      [IDL.Nat],
+      [IDL.Vec(VaccinationEvent)],
+      ['query'],
+    ),
+});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
+export const idlFactory = ({ IDL }) => {
+  const Pet = IDL.Record({
+    'id' : IDL.Nat,
+    'age' : IDL.Nat,
+    'name' : IDL.Text,
+    'petType' : IDL.Text,
+  });
+  const Appointment = IDL.Record({
+    'date' : IDL.Text,
+    'petId' : IDL.Nat,
+    'purpose' : IDL.Text,
+  });
+  const Medication = IDL.Record({
+    'endDate' : IDL.Opt(IDL.Text),
+    'dosage' : IDL.Text,
+    'name' : IDL.Text,
+    'frequency' : IDL.Text,
+    'startDate' : IDL.Text,
+  });
+  const VaccinationEvent = IDL.Record({
+    'vaccinationType' : IDL.Text,
+    'date' : IDL.Text,
+    'petId' : IDL.Nat,
+  });
+  
+  return IDL.Service({
+    'addAppointment' : IDL.Func([IDL.Nat, IDL.Text, IDL.Text], [], []),
+    'addMedication' : IDL.Func(
+        [IDL.Nat, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Opt(IDL.Text)],
+        [],
+        [],
+      ),
+    'addPet' : IDL.Func([IDL.Text, IDL.Nat, IDL.Text], [IDL.Nat], []),
+    'addVaccinationEvent' : IDL.Func([IDL.Nat, IDL.Text, IDL.Text], [], []),
+    'getAllPets' : IDL.Func([], [IDL.Vec(Pet)], ['query']),
+    'getAppointmentsByPet' : IDL.Func(
+        [IDL.Nat],
+        [IDL.Vec(Appointment)],
+        ['query'],
+      ),
+    'getMedicationsByPet' : IDL.Func(
+        [IDL.Nat],
+        [IDL.Vec(Medication)],
+        ['query'],
+      ),
+    'getPet' : IDL.Func([IDL.Nat], [IDL.Opt(Pet)], ['query']),
+    'getVaccinationsByPet' : IDL.Func(
+        [IDL.Nat],
+        [IDL.Vec(VaccinationEvent)],
+        ['query'],
+      ),
+  });
+};
 
 export const init = ({ IDL }) => { return []; };

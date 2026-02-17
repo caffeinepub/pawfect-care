@@ -1,15 +1,20 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
-  "summary": "Expand the Pawfect Care Chewy/VetCare-style grooming landing page to include a professional customer-friendly overview with feel-good imagery, an appointment-booking flow (pet details + service + date), expanded grooming services, membership plan mention, trust/vendor partnership messaging, Chewy-accurate brand colors, and end-of-page FAQ/Need Help sections, while fixing broken images and placing the provided images appropriately (including a set at the end).",
+  "projectStateVersion": 17,
+  "summary": "Rebuild Draft Version 2 only (as-is) and deploy that rebuilt Draft v2 to live production.",
   "architectural_notes": [
     "Use VetCare reference image as the primary style/layout guide; keep color palette and typography consistent while adapting content to pet grooming.",
-    "Update brand color usage to match Chewy/VetCare more precisely; use provided design tokens (e.g., color.get('link','active','primary'), color.get('text','brand','loyalty','accent-alt')) and/or closest hex values; primary text may align with var(--chirp-text-primary, #121212)."
+    "Update brand color usage to match Chewy/VetCare more precisely; use provided design tokens (e.g., color.get('link','active','primary'), color.get('text','brand','loyalty','accent-alt')) and/or closest hex values; primary text may align with var(--chirp-text-primary, #121212).",
+    "Support a reliable rollback process between deployed versions (e.g., switch production back to a prior draft/version such as Draft v2).",
+    "Proceed with a production deployment strategy that restores Draft Version 2 as the live version, ensuring all previously uploaded images (including image-19.png) are included and render in production.",
+    "Proceed by rebuilding Draft Version 2 only (no additional restoration scope implied) and deploy the rebuilt Draft v2 to live/production immediately after the build."
   ],
   "known_issues": [
     "Reported issue: some images appear broken on the current live page and need to be fixed (paths/loading/cropping).",
     "Build/deploy is intermittently failing due to an internal configuration problem (requires retry and/or platform support).",
-    "Images are still broken/not rendering on the live page even after applying an image-path fix and rebuilding; root cause may be incorrect asset placement or incorrect URLs in production."
+    "Images are still broken/not rendering on the live page even after applying an image-path fix and rebuilding; root cause may be incorrect asset placement or incorrect URLs in production.",
+    "Live page appears to be missing most/all website text/content (only an image is visible); likely a rendering/content-loading issue after Draft Version 4 build/deploy.",
+    "Production issue: page appears black-and-white with missing theme colors (Chewy blue not applying); likely CSS/theme variables not loading or being overridden."
   ],
   "isFixRequest": true,
   "existing_features": [
@@ -140,6 +145,62 @@
         "REQ-16"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-rollback-the-currently-deployed-pawfect-care-app-from-draft-version-3-back-to-draft-version-2-ensuring-the-live-production-deployment-serves-the-draft-version-2-frontend-and-backend-build-artifacts",
+      "title": "Rollback the currently deployed Pawfect Care app from Draft Version 3 back to Draft Version 2, ensuring the live/production deployment serves the Draft Version 2 frontend and backend build artifacts.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-production-rendering-issue-where-the-pawfect-care-landing-page-shows-the-hero-image-but-most-all-website-text-content-is-missing-e-g-headings-paragraphs-navigation-links-buttons-and-section-copy-should-be-visible-ensure-the-full-content-of-frontend-src-components-pawfectcarelanding-tsx-renders-visibly-on-the-live-build",
+      "title": "Investigate and fix the production rendering issue where the Pawfect Care landing page shows the hero image but most/all website text/content is missing (e.g., headings, paragraphs, navigation links, buttons, and section copy should be visible). Ensure the full content of frontend/src/components/PawfectCareLanding.tsx renders visibly on the live build.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-resolve-any-css-theme-stylesheet-conflicts-so-text-colors-reliably-apply-in-production-in-particular-ensure-only-the-intended-tailwind-theme-variable-definitions-are-applied-at-runtime-avoid-conflicting-duplicate-theme-files-such-as-frontend-index-css-vs-frontend-src-index-css-so-foreground-text-colors-are-not-rendered-as-black-on-black-or-otherwise-invisible",
+      "title": "Resolve any CSS/theme stylesheet conflicts so text colors reliably apply in production. In particular, ensure only the intended Tailwind theme variable definitions are applied at runtime (avoid conflicting duplicate theme files such as frontend/index.css vs frontend/src/index.css) so foreground/text colors are not rendered as black-on-black or otherwise invisible.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-newly-uploaded-grooming-image-file-image-19-png-to-the-frontend-static-assets-and-incorporate-it-into-the-pawfect-care-landing-page-so-it-renders-successfully-in-production-no-broken-image-icon-consistent-with-existing-image-sizing-cropping-spacing-and-using-a-base-path-safe-asset-url-strategy",
+      "title": "Add the newly uploaded grooming image file image-19.png to the frontend static assets and incorporate it into the Pawfect Care landing page so it renders successfully in production (no broken image icon), consistent with existing image sizing/cropping/spacing and using a base-path-safe asset URL strategy.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-production-styling-issue-where-the-pawfect-care-landing-page-appears-black-and-white-by-ensuring-the-intended-chewy-blue-tailwind-theme-variables-are-applied-at-runtime-and-are-not-overridden-by-conflicting-duplicate-theme-stylesheets-notably-resolve-any-conflict-between-frontend-index-css-and-frontend-src-index-css",
+      "title": "Fix the production styling issue where the Pawfect Care landing page appears black-and-white by ensuring the intended Chewy-blue Tailwind theme variables are applied at runtime and are not overridden by conflicting/duplicate theme stylesheets (notably resolve any conflict between frontend/index.css and frontend/src/index.css).",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-happy-pets-happy-hearts-section-of-frontend-src-components-pawfectcarelanding-tsx-keep-only-three-images-the-dog-nail-cutting-image-the-dog-teeth-cleaning-image-and-the-dog-ear-cleaning-image-remove-all-other-images-from-that-section",
+      "title": "In the “Happy Pets, Happy Hearts” section of frontend/src/components/PawfectCareLanding.tsx, keep only three images: the dog nail cutting image, the dog teeth cleaning image, and the dog ear cleaning image; remove all other images from that section.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-bath-brush-service-card-image-in-the-services-section-of-frontend-src-components-pawfectcarelanding-tsx-with-the-newly-uploaded-image-file-image-20-png-using-a-base-path-safe-asset-url-strategy-publicasseturl-so-it-renders-correctly-in-production",
+      "title": "Replace the Bath & Brush service card image in the Services section of frontend/src/components/PawfectCareLanding.tsx with the newly uploaded image file image-20.png, using a base-path-safe asset URL strategy (publicAssetUrl) so it renders correctly in production.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -183,6 +244,48 @@
       "id": "AR-7",
       "summary": "Adjust styling to match Chewy/VetCare brand colors more accurately (use Chewy blue; align to provided design tokens and closest hex values) and add small UI detail rows like 'Convenient access to care' with a mobile-in-hand icon customized for grooming.",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Revert/rollback the live deployment from Draft Version 3 back to Draft Version 2.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Restore Draft Version 2, reintegrate all previously uploaded grooming images (including image-19.png) so images render correctly, and deploy this restored build to live production.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Rebuild Draft Version 2 of the Pawfect Care project exactly as it existed in Draft Version 2, without introducing any new feature changes or additional fixes beyond what is already included in Draft Version 2.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Deploy the rebuilt Draft Version 2 build artifacts to live/production so the live site serves Draft Version 2.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Fix missing site colors (restore Chewy blue theme) and update imagery: in 'Happy Pets, Happy Hearts' keep only 3 images (dog nail cutting, dog teeth cleaning, dog ear cleaning) and replace the Bath & Brush service card image with newly uploaded image-20.png.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Rebuild and deploy the updated Pawfect Care Draft Version 2 frontend so the live production deployment includes the restored Chewy-blue colors and the specified image updates.",
+      "reqIds": [
+        "REQ-26"
+      ],
       "status": "pending"
     }
   ],

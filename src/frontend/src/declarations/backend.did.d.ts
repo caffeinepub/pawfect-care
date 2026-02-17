@@ -10,7 +10,43 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
-export interface _SERVICE {}
+export interface Appointment {
+  'date' : string,
+  'petId' : bigint,
+  'purpose' : string,
+}
+export interface Medication {
+  'endDate' : [] | [string],
+  'dosage' : string,
+  'name' : string,
+  'frequency' : string,
+  'startDate' : string,
+}
+export interface Pet {
+  'id' : bigint,
+  'age' : bigint,
+  'name' : string,
+  'petType' : string,
+}
+export interface VaccinationEvent {
+  'vaccinationType' : string,
+  'date' : string,
+  'petId' : bigint,
+}
+export interface _SERVICE {
+  'addAppointment' : ActorMethod<[bigint, string, string], undefined>,
+  'addMedication' : ActorMethod<
+    [bigint, string, string, string, string, [] | [string]],
+    undefined
+  >,
+  'addPet' : ActorMethod<[string, bigint, string], bigint>,
+  'addVaccinationEvent' : ActorMethod<[bigint, string, string], undefined>,
+  'getAllPets' : ActorMethod<[], Array<Pet>>,
+  'getAppointmentsByPet' : ActorMethod<[bigint], Array<Appointment>>,
+  'getMedicationsByPet' : ActorMethod<[bigint], Array<Medication>>,
+  'getPet' : ActorMethod<[bigint], [] | [Pet]>,
+  'getVaccinationsByPet' : ActorMethod<[bigint], Array<VaccinationEvent>>,
+}
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];
 export declare const idlFactory: IDL.InterfaceFactory;

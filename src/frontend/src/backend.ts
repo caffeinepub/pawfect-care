@@ -89,10 +89,205 @@ export class ExternalBlob {
         return this;
     }
 }
-export interface backendInterface {
+export interface Pet {
+    id: bigint;
+    age: bigint;
+    name: string;
+    petType: string;
 }
+export interface VaccinationEvent {
+    vaccinationType: string;
+    date: string;
+    petId: bigint;
+}
+export interface Appointment {
+    date: string;
+    petId: bigint;
+    purpose: string;
+}
+export interface Medication {
+    endDate?: string;
+    dosage: string;
+    name: string;
+    frequency: string;
+    startDate: string;
+}
+export interface backendInterface {
+    addAppointment(petId: bigint, date: string, purpose: string): Promise<void>;
+    addMedication(petId: bigint, name: string, dosage: string, frequency: string, startDate: string, endDate: string | null): Promise<void>;
+    addPet(name: string, age: bigint, petType: string): Promise<bigint>;
+    addVaccinationEvent(petId: bigint, vaccinationType: string, date: string): Promise<void>;
+    getAllPets(): Promise<Array<Pet>>;
+    getAppointmentsByPet(petId: bigint): Promise<Array<Appointment>>;
+    getMedicationsByPet(petId: bigint): Promise<Array<Medication>>;
+    getPet(id: bigint): Promise<Pet | null>;
+    getVaccinationsByPet(petId: bigint): Promise<Array<VaccinationEvent>>;
+}
+import type { Medication as _Medication, Pet as _Pet } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
+    async addAppointment(arg0: bigint, arg1: string, arg2: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.addAppointment(arg0, arg1, arg2);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.addAppointment(arg0, arg1, arg2);
+            return result;
+        }
+    }
+    async addMedication(arg0: bigint, arg1: string, arg2: string, arg3: string, arg4: string, arg5: string | null): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.addMedication(arg0, arg1, arg2, arg3, arg4, to_candid_opt_n1(this._uploadFile, this._downloadFile, arg5));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.addMedication(arg0, arg1, arg2, arg3, arg4, to_candid_opt_n1(this._uploadFile, this._downloadFile, arg5));
+            return result;
+        }
+    }
+    async addPet(arg0: string, arg1: bigint, arg2: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.addPet(arg0, arg1, arg2);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.addPet(arg0, arg1, arg2);
+            return result;
+        }
+    }
+    async addVaccinationEvent(arg0: bigint, arg1: string, arg2: string): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.addVaccinationEvent(arg0, arg1, arg2);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.addVaccinationEvent(arg0, arg1, arg2);
+            return result;
+        }
+    }
+    async getAllPets(): Promise<Array<Pet>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllPets();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllPets();
+            return result;
+        }
+    }
+    async getAppointmentsByPet(arg0: bigint): Promise<Array<Appointment>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAppointmentsByPet(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAppointmentsByPet(arg0);
+            return result;
+        }
+    }
+    async getMedicationsByPet(arg0: bigint): Promise<Array<Medication>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMedicationsByPet(arg0);
+                return from_candid_vec_n2(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMedicationsByPet(arg0);
+            return from_candid_vec_n2(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getPet(arg0: bigint): Promise<Pet | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getPet(arg0);
+                return from_candid_opt_n6(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getPet(arg0);
+            return from_candid_opt_n6(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getVaccinationsByPet(arg0: bigint): Promise<Array<VaccinationEvent>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getVaccinationsByPet(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getVaccinationsByPet(arg0);
+            return result;
+        }
+    }
+}
+function from_candid_Medication_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _Medication): Medication {
+    return from_candid_record_n4(_uploadFile, _downloadFile, value);
+}
+function from_candid_opt_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [string]): string | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_Pet]): Pet | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_record_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    endDate: [] | [string];
+    dosage: string;
+    name: string;
+    frequency: string;
+    startDate: string;
+}): {
+    endDate?: string;
+    dosage: string;
+    name: string;
+    frequency: string;
+    startDate: string;
+} {
+    return {
+        endDate: record_opt_to_undefined(from_candid_opt_n5(_uploadFile, _downloadFile, value.endDate)),
+        dosage: value.dosage,
+        name: value.name,
+        frequency: value.frequency,
+        startDate: value.startDate
+    };
+}
+function from_candid_vec_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_Medication>): Array<Medication> {
+    return value.map((x)=>from_candid_Medication_n3(_uploadFile, _downloadFile, x));
+}
+function to_candid_opt_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: string | null): [] | [string] {
+    return value === null ? candid_none() : candid_some(value);
 }
 export interface CreateActorOptions {
     agent?: Agent;
